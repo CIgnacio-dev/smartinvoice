@@ -1,36 +1,178 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🌟 SmartInvoice — Generador de Facturas con PDF (Next.js + Tailwind + jsPDF)
 
-## Getting Started
+<p align="center"> <strong>Sistema moderno para crear facturas, generar PDF profesionales y organizar tus documentos todo en un solo lugar.</strong> </p>
+🚀 Descripción
 
-First, run the development server:
+SmartInvoice es una aplicación moderna construida con Next.js, TailwindCSS, jsPDF y html2canvas-pro que permite:
 
-```bash
+Crear facturas de manera rápida
+
+Agregar ítems dinámicamente
+
+Calcular subtotal, impuestos, descuentos y totales
+
+Previsualizar la factura en tiempo real
+
+Exportarla a un PDF profesional, centrado y estilizado
+
+Diseñada para freelancers, agencias, pymes o cualquier persona que necesite generar facturas de manera simple y efectiva.
+
+🛠️ Tecnologías utilizadas
+Front-End
+
+⚛️ Next.js 14+ (App Router)
+
+🎨 TailwindCSS
+
+🧩 TypeScript
+
+🧮 React Hooks
+
+Generación de PDF
+
+🖨 jsPDF
+
+🖼 html2canvas-pro (con soporte para colores modernos como lab())
+
+✨ Características principales
+🧾 Generación instantánea de facturas
+
+Crea una factura completa incluyendo:
+
+Datos del cliente
+
+Ítems con cantidad, precio unitario y total
+
+Notas y observaciones
+
+Fecha de emisión
+
+Moneda configurable (CLP, USD, EUR)
+
+Número de factura generado dinámicamente
+
+🖨 Exportación a PDF de alta calidad
+
+SmartInvoice genera un PDF:
+
+Centrado en formato A4
+
+Con diseño profesional minimalista
+
+Con ajuste automático de escala
+
+Con ancho expandido en modo pdf-mode para evitar recortes
+
+Con estilo consistente al del preview
+
+👁 Vista previa en tiempo real
+
+La interfaz muestra una previsualización exacta del PDF antes de descargarlo:
+
+Diseño limpio
+
+Encabezado corporativo
+
+Tabla responsiva de ítems
+
+Resumen detallado de valores
+
+📱 100% Responsivo
+
+Funciona perfectamente en:
+
+Desktop
+
+Tablet
+
+Móvil
+
+El invoice-preview se adapta a la UI mientras que el PDF sale en su ancho óptimo.
+
+📸 Capturas
+
+(Agrega tus imágenes aquí)
+
+![Preview](./public/preview.png)
+![PDF Output](./public/pdf-output.png)
+
+📦 Instalación
+
+Clona el repositorio:
+
+git clone https://github.com/CIgnacio-dev/smartinvoice.git
+cd smartinvoice
+
+
+Instala dependencias:
+
+npm install
+
+
+Inicia el proyecto:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Abre en tu navegador:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+http://localhost:3000
 
-## Learn More
+🧩 Generación de PDF — Explicación técnica
 
-To learn more about Next.js, take a look at the following resources:
+Para evitar problemas de recorte o desbordes, SmartInvoice utiliza una técnica que:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Aplica una clase .pdf-mode al contenedor
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+aumenta el ancho
 
-## Deploy on Vercel
+incrementa padding
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+asegura un layout estable para A4
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Usa html2canvas-pro para capturar el nodo
+
+Inserta la imagen en un documento jsPDF ajustado al ancho del PDF
+
+element.classList.add("pdf-mode");
+
+const canvas = await html2canvas(element, {
+  scale: 2,
+});
+
+element.classList.remove("pdf-mode");
+
+pdf.addImage(img, "PNG", 0, 0, pdfWidth, pdfHeight);
+
+
+Esto garantiza un PDF ancho, nítido y sin cortes, incluso si la UI es responsiva.
+
+🗺️ Roadmap
+
+ Agregar logo personalizado
+
+ Generación de facturas en formato “landscape”
+
+ Soporte de múltiples plantillas (Minimal, Corporativa, Dark)
+
+ Enviar factura por email
+
+ Persistencia con base de datos (SQLite / Prisma / PostgreSQL)
+
+ Autenticación y dashboard de facturas
+
+ Exportar factura a JSON o XML
+
+🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas!
+Puedes abrir un issue, enviar un pull request o sugerir mejoras.
+
+📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
+Consulta el archivo LICENSE para más detalles.
+
+💬 Autor
+
+Desarrollado con ❤️ por Carlos Ignacio Roa Troncoso
