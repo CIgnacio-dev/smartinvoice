@@ -89,12 +89,6 @@ Móvil
 
 El invoice-preview se adapta a la UI mientras que el PDF sale en su ancho óptimo.
 
-📸 Capturas
-
-(Agrega tus imágenes aquí)
-
-![Preview](./public/preview.png)
-![PDF Output](./public/pdf-output.png)
 
 📦 Instalación
 
