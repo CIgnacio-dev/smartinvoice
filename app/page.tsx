@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import type { Invoice, InvoiceItem } from "../src/lib/types";
 import { InvoicePdfButton } from "../components/InvoicePdfButton";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const COMPANY_INFO = {
   name: "SmartInvoice SpA",
